@@ -14,10 +14,12 @@ for (var i = 0; i < noOfDrumButton; i++) {
     // var buttonpressed = event.key;
     // console.log("button preseesd", buttonpressed);
     makeSong(buttonPress);
+    buttonAnimation(buttonPress);
   });
 }
 document.addEventListener("keydown", function (event) {
   makeSong(event.key);
+  buttonAnimation(event.key);
 });
 
 function makeSong(key) {
@@ -58,4 +60,11 @@ function makeSong(key) {
   }
 }
 
+function buttonAnimation(currentKey) {
+  var activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+  setTimeout(function () {
+    activeButton.classList.remove("pressed");
+  }, 100);
+}
 // alert("added js file");
